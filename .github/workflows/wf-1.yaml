@@ -1,0 +1,9 @@
+name: CI
+on:
+  push:  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Welcome
+      runs: echo "Sample worklfow"
