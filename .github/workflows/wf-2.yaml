@@ -1,0 +1,35 @@
+name:  Workflow-2
+on:
+  push:                     # Triggered on Push events
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Will run on an Ubuntu VM
+    steps:
+    - uses: actions/checkout@v4
+    - name: Display the Readme File
+      run: |
+        ls -l
+        echo "Built success, adding test case" > test-script.sh
+        chmod +x test-script.sh
+    - uses: actions/upload-artifact@v4
+      with:
+        name: my-artifact  #Optional name for the artifact
+        path: test-script.sh  # path of the file. Required
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build # For list define array needs: [build, lint]
+    steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: my-artifact  #Optional name for the artifact
+        
+    - name: Run shell script for test
+      run: ./test-script.sh
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test # For list define array needs: [build, lint]
+    steps:
+    - name: Run shell script for test
+      run: echo "D3ployment success"
