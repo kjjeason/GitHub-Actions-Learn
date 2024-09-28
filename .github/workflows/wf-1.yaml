@@ -1,9 +1,9 @@
 name: Basic workflow
 on:
-  push:  
+  push:                     # Triggered on Push events
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Will run on a Ubuntu VM
     steps:
     - name: Welcome
-      run: echo "Sample workflow"
+      run: echo "Sample workflow"   
