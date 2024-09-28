@@ -1,4 +1,4 @@
-name: CI
+name: Basic workflow
 on:
   push:  
 jobs:
@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Welcome
-      run: echo "Sample worklfow"
+      run: echo "Sample workflow"
