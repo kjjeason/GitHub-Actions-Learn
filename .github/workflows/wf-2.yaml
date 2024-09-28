@@ -10,7 +10,7 @@ jobs:
       run: |
         ls -l
         echo "Built success, adding test case" > test-script.sh
-        chmod +x test-script.sh
+
     - uses: actions/upload-artifact@v4
       with:
         name: my-artifact  #Optional name for the artifact
@@ -23,6 +23,7 @@ jobs:
     - uses: actions/download-artifact@v4
       with:
         name: my-artifact  #Optional name for the artifact
+    - run: chmod +x test-script.sh ; ls -l
         
     - name: Run shell script for test
       run: ./test-script.sh
