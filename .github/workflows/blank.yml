@@ -4,7 +4,7 @@ on:
 #Ensure only single instance of the workflow will run at a time.
 concurrency:  #At the workflow level
   group: prod-deployemnt
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
