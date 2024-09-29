@@ -1,0 +1,19 @@
+name: Greeting on variable day
+on: 
+  push:
+env:
+  DAY_OF_WEEK: Monday  #variable scoped at Workflow level
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello  #variable scoped at Job level
+    steps:
+      - name: "Say Hello User it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: AIBot   #variable scoped at Step level
+      - name: Use context to access the variables
+        run: echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"
+        env:
+          First_Name: AIBot   #variable scoped at Step level
