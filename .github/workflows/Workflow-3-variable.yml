@@ -1,4 +1,4 @@
-name: Greeting on variable day
+name: Workflow-3-variable
 on: 
   push:
 env:
