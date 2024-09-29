@@ -11,7 +11,9 @@ jobs:
  #Ensure only single instance of the job will run at a time.
     concurrency:
       group: prod-deployemnt-job
-      cancel-in-progress: true
+      cancel-in-progress: false
     steps: 
     - name: Build and test code
-      run: echo "The code build and test is over"
+      run: |
+        echo "The code build and test is over"
+        sleep 120
