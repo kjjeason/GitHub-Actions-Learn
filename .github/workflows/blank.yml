@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
  #Ensure only single instance of the job will run at a time.
     concurrency:
-      group: prod-deployemnt
+      group: prod-deployemnt-job
       cancel-in-progress: true
     steps: 
     - name: Build and test code
