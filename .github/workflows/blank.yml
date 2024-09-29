@@ -1,0 +1,17 @@
+name:  Workflow-4-concurrency
+on:
+  workflow_dispatch
+#Ensure only single instance of the workflow will run at a time.
+concurrency:  #At the workflow level
+  group: prod-deployemnt
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ #Ensure only single instance of the job will run at a time.
+    concurrency:
+      group: prod-deployemnt
+      cancel-in-progress: true
+    steps: 
+    - name: Build and test code
+      run: echo "The code build and test is over"
