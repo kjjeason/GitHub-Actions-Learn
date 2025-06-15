@@ -1,0 +1,9 @@
+name: Basic Workflow
+on: 
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step-1 Welcome
+      run: echo "Simple workflow"
